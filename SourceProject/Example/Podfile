@@ -1,0 +1,5 @@
+use_frameworks!
+
+target '{{ libName }}_Example' do
+  pod '{{ libName }}', :path => '../'
+end

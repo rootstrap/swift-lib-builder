@@ -55,5 +55,3 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ## License
 
 **{{ libName }}** is available under the MIT license. See the LICENSE file for more info.
-
-[<img src="https://s3-us-west-1.amazonaws.com/rootstrap.com/img/rs.png" width="100"/>](http://www.rootstrap.com)
