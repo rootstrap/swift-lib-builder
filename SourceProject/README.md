@@ -34,7 +34,7 @@ github "{{ githubUser }}/{{ libName }}" ~> 1.0.0
 
 - In XCode 11, go to File -> Swift Packages -> Add Package Dependency.
 - Enter the repo URL(https://github.com/{{ githubUser }}/{{ libName }}) and click Next.
-- Select the version rule desired(you can specify a version number, branch or commit) and click Next. This library supports SPM starting from the version 1.0.0.
+- Select the version rule desired(you can specify a version number, branch or commit) and click Next.
 - Finally, select the target where you want to use the framework.
 
 That should be it. **{{ libName }}** should appear in the navigation panel as a dependency and the framework will be linked automatically to your target.

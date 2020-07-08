@@ -277,7 +277,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				COMPANY_NAME = "{{ companyName }}";
+				COMPANY_NAME = "{{ bundleDomain }}";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = WNU857N39T;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -305,7 +305,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				COMPANY_NAME = "{{ companyName }}";
+				COMPANY_NAME = "{{ bundleDomain }}";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = WNU857N39T;
 				DYLIB_COMPATIBILITY_VERSION = 1;
