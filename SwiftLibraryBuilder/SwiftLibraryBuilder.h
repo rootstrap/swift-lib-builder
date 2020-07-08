@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SwiftLibraryBuilder : NSObject
+@interface SwiftLibraryBuilder: NSObject
 
 @end

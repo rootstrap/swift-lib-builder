@@ -120,10 +120,12 @@ open class LibraryBuilder {
   }
   
   private func prepareLibraryFiles() -> [URL] {
-    let enumerator = fileManager.enumerator(
-      at: URL(fileURLWithPath: currentFolder),
-      includingPropertiesForKeys: [.nameKey, .isDirectoryKey]
-    )!
+    guard
+      let enumerator = fileManager.enumerator(
+        at: URL(fileURLWithPath: currentFolder),
+        includingPropertiesForKeys: [.nameKey, .isDirectoryKey]
+      )
+    else { return [] }
     var directories: [URL] = []
     
     while let itemURL = enumerator.nextObject() as? URL {
