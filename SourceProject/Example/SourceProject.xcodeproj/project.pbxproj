@@ -11,7 +11,6 @@
 		9B0A604C24B3CCE100812410 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0A604924B3CCE100812410 /* AppDelegate.swift */; };
 		9B0A604D24B3CCE100812410 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B0A604A24B3CCE100812410 /* Images.xcassets */; };
 		9B0A604E24B3CCE100812410 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0A604B24B3CCE100812410 /* ViewController.swift */; };
-		9B0A605024B3CD0B00812410 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B0A604F24B3CD0B00812410 /* Info.plist */; };
 		9B0A605D24B3CEA600812410 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B0A605124B3CD2000812410 /* LaunchScreen.xib */; };
 		9B0A605E24B3CEA900812410 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B0A605324B3CD2000812410 /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -222,7 +221,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B0A605024B3CD0B00812410 /* Info.plist in Resources */,
 				9B0A604D24B3CCE100812410 /* Images.xcassets in Resources */,
 				9B0A605E24B3CEA900812410 /* Main.storyboard in Resources */,
 				9B0A605D24B3CEA600812410 /* LaunchScreen.xib in Resources */,
@@ -393,7 +391,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/SourceProject/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.{{ companyName}}.{{ libName }}-Example";
+				PRODUCT_BUNDLE_IDENTIFIER = "{{ bundleDomain }}.{{ libName }}-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
@@ -409,7 +407,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/SourceProject/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.{{ companyName}}.{{ libName }}-Example";
+				PRODUCT_BUNDLE_IDENTIFIER = "{{ bundleDomain }}.{{ libName }}-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;

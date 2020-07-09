@@ -12,7 +12,21 @@
 
 ## Usage
 
-Coming soon :)
+Execute the build-library binary from the terminal:
+
+```
+./build-library
+```
+
+Follow the instructions and provide the information requested.
+
+Optionally, you can provide the output folder for your new library. If you omit this value the project will be created in a folder
+named after your library in the current location.
+
+```
+./build-library /relative/path/to/folder
+```
+
 
 ## Credits
 
