@@ -1,7 +1,7 @@
 
 # swift-lib-builder
 
-[![CI Status](https://img.shields.io/travis/rootstrap/swift-lib-builder.svg?style=flat)](https://travis-ci.org/rootstrap/swift-lib-builder)
+[![Maintainability](https://api.codeclimate.com/v1/badges/f5937112936510925ec1/maintainability)](https://codeclimate.com/github/rootstrap/swift-lib-builder/maintainability)
 [![Version](https://img.shields.io/badge/%20Version-1.0.0-green)](#)
 [![License](https://img.shields.io/badge/%20License-MIT-green)](https://github.com/rootstrap/swift-lib-builder/blob/master/LICENSE)
 [![Swift Version](https://img.shields.io/badge/Swift%20Version-5.2-green)](#)
