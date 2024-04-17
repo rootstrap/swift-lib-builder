@@ -16,8 +16,16 @@ if CommandLine.argc > 1 {
 
 let builder = LibraryBuilder(outputFolder: outputFolder)
 do {
+  print("""
+  +-----------------------------------------+
+  |       < Setup New Swift Library >       |
+  +-----------------------------------------+
+  """)
+  
   try builder.validate()
   try builder.initializeLibrary()
+
+  print("************** ALL SET! *******************")
   exit(EXIT_SUCCESS)
 } catch let error {
   print("The program failed: \(error.localizedDescription)")

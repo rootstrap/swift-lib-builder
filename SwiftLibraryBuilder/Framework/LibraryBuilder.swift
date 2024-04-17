@@ -8,7 +8,7 @@ open class LibraryBuilder {
   
   static let githubUserPlaceholder = "{{ githubUser }}"
   static let defaultGithubUser = "rootstrap"
-  private(set) var githubUser = LibraryBuilder.defaultGithubUser
+  private(set) var gitHubUser = LibraryBuilder.defaultGithubUser
   
   static let companyNamePlaceholder = "{{ companyName }}"
   static let baseCompany = "Rootstrap Inc."
@@ -17,6 +17,8 @@ open class LibraryBuilder {
   static let bundleDomainPlaceholder = "{{ bundleDomain }}"
   static let baseDomain = "com.rootstrap"
   private(set) var bundleDomain = LibraryBuilder.baseDomain
+
+  private(set) var needsGitRepo = "Yes"
 
   let whiteList: [String] = [
     ".DS_Store",
@@ -37,7 +39,7 @@ open class LibraryBuilder {
   var sourceFilesPath: String {
     "\(currentFolder)/\(LibraryBuilder.baseProjectName)/"
   }
-  
+
   public init(outputFolder: String?) {
     self.outputFolder = outputFolder
   }
@@ -46,8 +48,9 @@ open class LibraryBuilder {
     case nameEntry = 1
     case bundleDomainEntry
     case companyNameEntry
-    case githubUserEntry
-    
+    case gitHubUserEntry
+    case gitRepoOption
+
     var question: String {
       switch self {
       case .nameEntry:
@@ -56,8 +59,10 @@ open class LibraryBuilder {
         return "Enter the reversed domain of your organization"
       case .companyNameEntry:
         return "Enter the Company name to use on file's headers"
-      case .githubUserEntry:
+      case .gitHubUserEntry:
         return "Enter the GitHub user that will host your repo"
+      case .gitRepoOption:
+        return "Would you like to initialize a Git repository? (Y/n)"
       }
     }
   }
@@ -88,16 +93,11 @@ open class LibraryBuilder {
   }
 
   public func initializeLibrary() throws {
-    print("""
-    +-----------------------------------------+
-    |       < Setup New Swift Library >       |
-    +-----------------------------------------+
-    """)
-     
     projectName = setup(step: .nameEntry, defaultValue: projectName)
     bundleDomain = setup(step: .bundleDomainEntry, defaultValue: LibraryBuilder.baseDomain)
     companyName = setup(step: .companyNameEntry, defaultValue: LibraryBuilder.baseCompany)
-    githubUser = setup(step: .githubUserEntry, defaultValue: LibraryBuilder.defaultGithubUser)
+    gitHubUser = setup(step: .gitHubUserEntry, defaultValue: LibraryBuilder.defaultGithubUser)
+    needsGitRepo = setup(step: .gitRepoOption, defaultValue: needsGitRepo)
 
     print("Copying source files...")
     try copySourceToOutputFolder()
@@ -109,14 +109,21 @@ open class LibraryBuilder {
     let directories = prepareLibraryFiles()
     renameLibraryFolders(directories)
 
-    print("Opening new project...")
-    Shell.execute(
-      currentFolder: currentFolder,
-      "open", "\(projectName).xcodeproj"
-    )
-    print("************** ALL SET! *******************")
+    setupGitRepositoryIfNeeded()
+
+    print("Opening new project at \(finalOutputFolder) ...")
+    Shell.execute(currentFolder: currentFolder, "xed", finalOutputFolder)
   }
-  
+
+  private func setupGitRepositoryIfNeeded() {
+    if ["Yes", "Y", "y", "yes"].contains(needsGitRepo) {
+      let remoteURL = "git@github.com:\(gitHubUser)/\(projectName).git"
+      print("Initializing Git Repo with SSH remote \(remoteURL) ...")
+      Shell.execute(currentFolder: finalOutputFolder, "git", "init")
+      Shell.execute(currentFolder: finalOutputFolder, "git", "remote", "add", "origin", remoteURL)
+    }
+  }
+
   private func prepareLibraryFiles() -> [URL] {
     guard
       let enumerator = fileManager.enumerator(
@@ -135,7 +142,7 @@ open class LibraryBuilder {
           try itemURL.processForNewLibrary(
             newLibraryName: projectName,
             newBundleDomain: bundleDomain,
-            newGithubUser: githubUser,
+            newGithubUser: gitHubUser,
             newCompanyName: companyName
           )
         } catch {
