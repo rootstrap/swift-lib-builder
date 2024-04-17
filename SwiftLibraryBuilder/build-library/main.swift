@@ -17,7 +17,7 @@ if CommandLine.argc > 1 {
 let builder = LibraryBuilder(outputFolder: outputFolder)
 do {
   try builder.validate()
-  try builder.initialize()
+  try builder.initializeLibrary()
   exit(EXIT_SUCCESS)
 } catch let error {
   print("The program failed: \(error.localizedDescription)")

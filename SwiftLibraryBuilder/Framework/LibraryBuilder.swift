@@ -87,12 +87,10 @@ open class LibraryBuilder {
     }
   }
 
-  public func initialize() throws {
+  public func initializeLibrary() throws {
     print("""
     +-----------------------------------------+
-    |                                         |
     |       < Setup New Swift Library >       |
-    |                                         |
     +-----------------------------------------+
     """)
      
