@@ -3,7 +3,7 @@
 //
 //
 //  Created by {{ companyName }} on 6/11/20.
-//  Copyright © 2020 {{ companyName }}. All rights reserved.
+//  Copyright © 2024 {{ companyName }}. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

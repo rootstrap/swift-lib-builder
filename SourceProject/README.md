@@ -7,7 +7,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/{{ libName }}.svg?style=flat)](https://cocoapods.org/pods/{{ libName }})
 [![Carthage](https://img.shields.io/badge/Carthage-compatible-success)](#installation)
 [![SPM](https://img.shields.io/badge/SPM-compatible-success)](#installation)
-[![Swift Version](https://img.shields.io/badge/Swift%20Version-5.2-orange)](https://cocoapods.org/pods/{{ libName }})
+[![Swift Version](https://img.shields.io/badge/Swift%20Version-5.7-orange)](https://cocoapods.org/pods/{{ libName }})
 
 ## What is it?
 
@@ -32,7 +32,7 @@ github "{{ githubUser }}/{{ libName }}" ~> 1.0.0
 
 #### 3. Swift Package Manager
 
-- In XCode 11, go to File -> Swift Packages -> Add Package Dependency.
+- In XCode 11+, go to File -> Swift Packages -> Add Package Dependency.
 - Enter the repo URL (https://github.com/{{ githubUser }}/{{ libName }}) and click Next.
 - Select the version rule desired (you can specify a version number, branch or commit) and click Next.
 - Finally, select the target where you want to use the framework.
